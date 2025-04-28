@@ -1,26 +1,14 @@
-import ChapterView from '../views/ChapterView.vue'; 
-
 <template>
-  <div>
-    <h1>Liste des histoires</h1>
-    <ul>
-      <li v-for="story in stories" :key="story.id">
-        <router-link :to="`/chapter/1`">
-          {{ story.title }}
-        </router-link>
-      </li>
-    </ul>
+  <div class="min-h-screen flex flex-col justify-center items-center bg-gray-50 p-6">
+    <div class="text-center space-y-6">
+      <h1 class="text-4xl font-bold text-indigo-600">Bienvenue dans l'aventure</h1>
+      <p class="text-lg text-gray-700">Es-tu prêt à explorer le Temple Oublié ?</p>
+      <router-link
+        to="/chapter/1"
+        class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-xl transition"
+      >
+        Commencer l'histoire
+      </router-link>
+    </div>
   </div>
 </template>
-
-<script setup>
-import { ref, onMounted } from 'vue';
-import api from '../services/api';
-
-const stories = ref([]);
-
-onMounted(async () => {
-  const response = await api.get('/stories');
-  stories.value = response.data;
-});
-</script>

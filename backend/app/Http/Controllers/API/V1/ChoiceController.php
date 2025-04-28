@@ -23,7 +23,7 @@ class ChoiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoryRequest $request)
     {
         //
     }
@@ -39,7 +39,8 @@ class ChoiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoryRequest $request, $id)
+
     {
         //
     }

@@ -33,7 +33,13 @@ class ChoiceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $story = Story::find($id);
+
+        if (!$story) {
+            abort(404, 'Story not found.');
+        }
+    
+        return response()->json($story);
     }
 
     /**

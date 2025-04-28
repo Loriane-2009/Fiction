@@ -4,15 +4,21 @@ namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Choice;
 class ChoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index(Request $request)
+{
+    if ($request->has('chapter_id')) {
+        return response()->json(
+            Choice::where('chapter_id', $request->input('chapter_id'))->get()
+        );
     }
+    return response()->json(Choice::all());
+}
 
     /**
      * Store a newly created resource in storage.
@@ -45,4 +51,5 @@ class ChoiceController extends Controller
     {
         //
     }
+
 }

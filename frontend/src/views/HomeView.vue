@@ -1,9 +1,13 @@
+import ChapterView from '../views/ChapterView.vue'; 
+
 <template>
   <div>
     <h1>Liste des histoires</h1>
     <ul>
       <li v-for="story in stories" :key="story.id">
-        {{ story.title }}
+        <router-link :to="`/chapter/1`">
+          {{ story.title }}
+        </router-link>
       </li>
     </ul>
   </div>

@@ -28,7 +28,8 @@ class ChapterController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $chapter = \App\Models\Chapter::findOrFail($id);
+    return response()->json($chapter);
     }
 
     /**
